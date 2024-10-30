@@ -1,0 +1,43 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fix for mobile input text visibility */
+@layer base {
+  input,
+  textarea {
+    @apply text-gray-900;
+    -webkit-text-fill-color: #111827 !important;
+    opacity: 1 !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    -webkit-text-fill-color: #6B7280 !important;
+    color: #6B7280 !important;
+  }
+
+  /* Ensure text remains visible during input on iOS */
+  input,
+  textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  /* Fix background color on autofill */
+  input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: #111827 !important;
+  }
+}
+
+/* Additional mobile-specific fixes */
+@media (max-width: 768px) {
+  input,
+  textarea {
+    font-size: 16px !important; /* Prevent zoom on focus in iOS */
+  }
+}
